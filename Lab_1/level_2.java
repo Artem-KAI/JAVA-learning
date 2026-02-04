@@ -50,7 +50,7 @@ public class level_2 {
         head = removeByIndex(head, 1);
         head = removeByIndex(head, 1);
 
-        System.out.println("Після видалення елементів:");
+        System.out.println("After the elements appear:");
         printList(head);
     }
 
