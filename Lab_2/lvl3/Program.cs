@@ -2,9 +2,6 @@
 
 using lvl3.Models;
 using lvl3.Hashing;
-using System;
-using System.Collections.Generic;
-using System.Linq;  
 
 class Program
 {
