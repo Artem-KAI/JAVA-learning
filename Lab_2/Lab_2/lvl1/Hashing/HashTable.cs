@@ -1,9 +1,6 @@
-using System;
-using LabHash.Models;
+namespace lvl1.Models;
 
-namespace LabHash.Hashing;
-
-public class HashTable
+class HashTable
 {
     private Square[] table;
     private int size;
@@ -11,46 +8,52 @@ public class HashTable
     public HashTable(int size)
     {
         this.size = size;
-        table = new Square[size];
+        this.table = new Square[size];
     }
 
-    // спеціальний метод: ключ + позиція
-    private int Hash(Square sq)
+    // Метод хешування: Ділення (Table 2.1, Col 3)
+    // Ключ: Периметр (Table 2.1, Col 4)
+    private int HashFunction(double key)
     {
-        int key = (int)sq.P;
-        return key % size;
+        int k = (int)Math.Floor(key);
+        k = Math.Abs(k);
+        return k % size;
+        // Беремо цілу частину периметра для залишку від ділення
+        //return (int)Math.Floor(key) % size;
     }
 
-    public bool Insert(Square sq)
+    // Метод вставки (Перший рівень: повертає false, якщо позиція зайнята)
+    public bool Insert(Square square)
     {
-        int index = Hash(sq);
+        int index = HashFunction(square.GetPerimeter());
 
-        if (table[index] != null)
-            return false; // колізія — елемент не додається
+        if (table[index] == null)
+        {
+            table[index] = square;
+            return true;
+        }
 
-        table[index] = sq;
-        return true;
+        return false; // колізія
     }
 
-    public void Print()
+    // Виведення вмісту хеш-таблиці
+    public void Display()
     {
-        Console.WriteLine("\nХеш-таблиця:");
-        Console.WriteLine("------------------------------------------------------------");
+        Console.WriteLine("\n--- Вміст хеш-таблиці ---");
+        Console.WriteLine("{0,-5} | {1,-10} | {2}", "№", "Ключ(P)", "Елемент");
+        Console.WriteLine(new string('-', 70));
 
         for (int i = 0; i < size; i++)
         {
-            if (table[i] == null)
+            if (table[i] != null)
             {
-                Console.WriteLine($"[{i,2}] : EMPTY");
+                Console.WriteLine("[{0:D3}] | {1,-10:F2} | {2}",
+                    i, table[i].GetPerimeter(), table[i].ToString());
             }
             else
             {
-                Console.WriteLine(
-                    $"[{i,2}] : Key={table[i].P,8:F2} | {table[i]}"
-                );
+                Console.WriteLine("[{0:D3}] | {1,-10} | Позиція вільна", i, "-");
             }
         }
-
-        Console.WriteLine("------------------------------------------------------------");
     }
 }
