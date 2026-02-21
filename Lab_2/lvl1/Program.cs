@@ -1,15 +1,17 @@
+namespace lvl1;
+
 using lvl1.Hashing;
 using lvl1.Models;
+using System;
 
-// Колізії можуть виникати під час генерації, але для першого рівня
-// вони не розв’язуються, елемент не додається,
-// і генерація продовжується, доки таблиця не буде заповнена без колізій.
-
-class Program
+internal class Program
 {
 
     static void Main(string[] args)
     {
+        Console.InputEncoding = System.Text.Encoding.UTF8;
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+
         Console.Write("Введiть розмiр хеш-таблицi: ");
         if (!int.TryParse(Console.ReadLine(), out int size) || size <= 0)
         {

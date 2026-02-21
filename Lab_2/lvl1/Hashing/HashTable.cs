@@ -1,6 +1,9 @@
-namespace lvl1.Models;
+namespace lvl1.Hashing;
 
-class HashTable
+using lvl1.Models;
+using System;
+
+internal class HashTable
 {
     private Square[] table;
     private int size;
