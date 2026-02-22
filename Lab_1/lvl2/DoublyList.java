@@ -6,25 +6,11 @@ package lvl2;
 
 
 
-// Опис структури даних зі зв’язним способом розміщення
-class Node {
-    String value; // Строковий тип, що представляє число
-    Node next;
-    Node prev;
-
-    Node(String value) 
-    {
-        this.value = value;
-        this.next = null;
-        this.prev = null;
-    }
-}
-
-public class DoublyList {
+public class DoublyList 
+{
     private Node head;
     private Node tail;
 
-    // Створення порожнього списку (конструктор)
     public DoublyList()
     {
         this.head = null;
@@ -34,18 +20,20 @@ public class DoublyList {
     public void add(String value) 
     {
         Node newNode = new Node(value);
-        if (head == null) {
+
+        if (head == null) 
+        {
             head = newNode;
             tail = newNode;
         } 
-        else {
+        else 
+        {
             tail.next = newNode;
             newNode.prev = tail;
             tail = newNode;
         }
     }
 
-    // Видалення елемента за індексом
     public void removeByIndex(int index) 
     {
         if (head == null) {
@@ -59,21 +47,22 @@ public class DoublyList {
         }
 
         if (current == null) { 
-            return; // Індекс поза межами
+            return;  
         }
 
+        // обробка лівого вузла 
         if (current.prev != null) {
             current.prev.next = current.next;
         } 
         else {
-            head = current.next; // Видаляємо голову
+            head = current.next; // якщо зліва нікого нема то видаляємо голову 
         }
-
+        // обробка правого вузла 
         if (current.next != null) {
             current.next.prev = current.prev;
         } 
         else {
-            tail = current.prev; // Видаляємо хвіст
+            tail = current.prev; // якщо справа нікого нема то видаляємо хвіст
         }
     }
 
@@ -81,10 +70,10 @@ public class DoublyList {
     public void display() 
     {
         Node current = head;
-        while (current != null) {
+        while (current != null) 
+            {
             System.out.print(current.value + " ");
             current = current.next;
         }
-        System.out.println();
     }
 }

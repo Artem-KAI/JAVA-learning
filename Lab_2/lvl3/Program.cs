@@ -26,20 +26,18 @@ class Program
             Console.WriteLine("Некоректна кількість.");
             return;
         }
-
-        // Вставка елементів (колізії дозволені, chaining)
+        
         for (int i = 0; i < count; i++)
         {
             double x = rnd.NextDouble() * 100;
             double y = rnd.NextDouble() * 100;
-            double side = 1 + rnd.NextDouble() * 10; // 1..11
+            double side = 1 + rnd.NextDouble() * 10;  
 
             ht.Insert(new Square(x, y, side));
         }
 
         ht.Display("Вміст хеш-таблиці ДО видалення");
 
-        // Критерій табл. 2.3 (варіант 5): S < S0
         Console.Write("\nВведіть поріг площі S0 (видалити всі квадрати з S < S0): ");
         if (!double.TryParse(Console.ReadLine(), out double s0) || s0 < 0)
         {

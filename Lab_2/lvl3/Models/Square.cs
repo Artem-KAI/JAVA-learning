@@ -12,11 +12,9 @@ class Square
         Y = y;
         Side = Math.Abs(side);
     }
-
-    // Ключ (табл. 2.1, кол.4): Периметр
+ 
     public double Perimeter => 4 * Side;
-
-    // Для 3 рівня (табл. 2.3, варіант 5): критерій видалення по площі
+ 
     public double Area => Side * Side;
 
     public override string ToString()

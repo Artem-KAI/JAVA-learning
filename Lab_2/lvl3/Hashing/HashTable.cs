@@ -15,23 +15,20 @@ class HashTable
         for (int i = 0; i < size; i++)
             table[i] = new LinkedList<Square>();
     }
-
-    // Метод хешування: ділення
+ 
     private int HashFunction(double key)
     {
         int k = (int)Math.Floor(key);
         return Math.Abs(k) % size;
     }
-
-    // Вставка з урахуванням колізій (chaining)
+ 
     public bool Insert(Square square)
     {
         int index = HashFunction(square.Perimeter);
         table[index].AddLast(square);
         return true;
     }
-
-    // 3 рівень (табл. 2.3, варіант 5): видалити елементи з площею < S0
+     
     public int DeleteByAreaLessThan(double s0)
     {
         int removed = 0;
@@ -55,8 +52,7 @@ class HashTable
 
         return removed;
     }
-
-    // Вивід: позиція, ключ, елементи (ланцюжок в одному рядку)
+     
     public void Display(string title)
     {
         Console.WriteLine($"\n--- {title} ---");
@@ -69,7 +65,7 @@ class HashTable
 
             if (table[i].Count == 0)
             {
-                Console.WriteLine("Позиція вільна");
+                Console.WriteLine("Позицiя вільна");
                 continue;
             }
 

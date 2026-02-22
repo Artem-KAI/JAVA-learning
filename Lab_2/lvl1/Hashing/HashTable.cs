@@ -13,19 +13,14 @@ internal class HashTable
         this.size = size;
         this.table = new Square[size];
     }
-
-    // Метод хешування: Ділення (Table 2.1, Col 3)
-    // Ключ: Периметр (Table 2.1, Col 4)
+ 
     private int HashFunction(double key)
     {
         int k = (int)Math.Floor(key);
         k = Math.Abs(k);
         return k % size;
-        // Беремо цілу частину периметра для залишку від ділення
-        //return (int)Math.Floor(key) % size;
     }
-
-    // Метод вставки (Перший рівень: повертає false, якщо позиція зайнята)
+     
     public bool Insert(Square square)
     {
         int index = HashFunction(square.GetPerimeter());
@@ -36,10 +31,9 @@ internal class HashTable
             return true;
         }
 
-        return false; // колізія
+        return false; 
     }
-
-    // Виведення вмісту хеш-таблиці
+     
     public void Display()
     {
         Console.WriteLine("\n--- Вміст хеш-таблиці ---");

@@ -33,8 +33,7 @@ internal class Program
 
         int inserted = 0;
         int attempts = 0;
-
-        // Генерація та вставка елементів, поки не заповнимо потрібну кількість без колізій
+         
         while (inserted < countToInsert && attempts < 2000)
         {
             double x = random.NextDouble() * 100;

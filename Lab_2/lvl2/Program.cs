@@ -29,8 +29,7 @@ class Program
         }
 
         for (int i = 0; i < count; i++)
-        {
-            // Випадкові координати та сторона (Random.NextDouble)
+        { 
             double x = rand.NextDouble() * 100;
             double y = rand.NextDouble() * 100;
             double side = 1 + rand.NextDouble() * 10;

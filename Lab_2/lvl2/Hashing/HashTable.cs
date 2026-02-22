@@ -17,8 +17,7 @@ class HashTable
         for (int i = 0; i < size; i++)
             table[i] = new LinkedList<Square>();
     }
-
-    // Метод хешування: Ділення
+     
     private int HashFunction(double key)
     {
         int k = (int)Math.Floor(key);
@@ -30,9 +29,8 @@ class HashTable
         int index = HashFunction(square.GetPerimeter());
         table[index].AddLast(square);
         return true;
-    }
+    } 
 
-    // Виведення: номер позиції, ключі та елементи (ланцюжок в одному рядку)
     public void Display()
     {
         Console.WriteLine("\n--- Вміст хеш-таблиці (Роздільне зв’язування) ---");
@@ -50,8 +48,7 @@ class HashTable
             }
 
             foreach (var item in table[i])
-            {
-                // окремо ключ + елемент (як просить методичка)
+            { 
                 Console.Write($"P={item.GetPerimeter():F2} => {item}  ||  ");
             }
 
