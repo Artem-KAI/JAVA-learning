@@ -26,6 +26,6 @@ class Square
 
     public override string ToString()
     {
-        return $"Квадрат [X:{X:F1}, Y:{Y:F1}, Side:{Side:F2}, Area: {Area():F2}, Perimetr: {Perimeter():F2}]";
+        return $"Square [X:{X:F1}, Y:{Y:F1}, Side:{Side:F2}, Area: {Area():F2}, Perimeter: {Perimeter():F2}]";
     }
 }
