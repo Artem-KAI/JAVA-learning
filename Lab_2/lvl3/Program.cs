@@ -38,19 +38,19 @@ class Program
 
         ht.Display("Вміст хеш-таблиці ДО видалення");
 
-        Console.Write("\nВведіть поріг площі S0 (видалити всі квадрати з S < S0): ");
+        Console.Write("\nВведіть поріг площі (видалити всі квадрати з меншою площею): ");
         if (!double.TryParse(Console.ReadLine(), out double s0) || s0 < 0)
         {
-            Console.WriteLine("Некоректний поріг.");
+            Console.WriteLine("Некоректний поріг");
             return;
         }
 
         int removed = ht.DeleteByAreaLessThan(s0);
         Console.WriteLine($"\nВидалено елементів: {removed}");
 
-        ht.Display("Вміст хеш-таблиці ПІСЛЯ видалення");
+        ht.Display("Вміст хеш-таблиці після видалення");
 
-        Console.WriteLine("\nНатисніть будь-яку клавішу для виходу...");
+        Console.WriteLine("\nНатисніть будь-яку клавішу для виходу");
         Console.ReadKey();
     }
 }

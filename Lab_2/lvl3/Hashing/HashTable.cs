@@ -15,20 +15,22 @@ class HashTable
         for (int i = 0; i < size; i++)
             table[i] = new LinkedList<Square>();
     }
- 
+
     private int HashFunction(double key)
     {
         int k = (int)Math.Floor(key);
-        return Math.Abs(k) % size;
+        k = Math.Abs(k);
+        return k % size;
     }
- 
+
     public bool Insert(Square square)
     {
-        int index = HashFunction(square.Perimeter);
+        int index = HashFunction(square.Perimeter());
         table[index].AddLast(square);
         return true;
     }
-     
+
+    // видалити всі квадрати, площа яких менша за задану 
     public int DeleteByAreaLessThan(double s0)
     {
         int removed = 0;
@@ -40,7 +42,7 @@ class HashTable
             {
                 var next = node.Next;
 
-                if (node.Value.Area < s0)
+                if (node.Value.Area() < s0)
                 {
                     table[i].Remove(node);
                     removed++;
@@ -55,28 +57,37 @@ class HashTable
      
     public void Display(string title)
     {
-        Console.WriteLine($"\n--- {title} ---");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine($"\n {title} ");
         Console.WriteLine("{0,-5} | {1}", "Поз", "Ключ(P) -> Елементи");
         Console.WriteLine(new string('-', 120));
+        Console.ResetColor();   
 
         for (int i = 0; i < size; i++)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("[{0:000}] | ", i);
+            Console.ResetColor();
 
             if (table[i].Count == 0)
             {
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Позицiя вільна");
+                Console.ResetColor();
                 continue;
             }
 
             foreach (var sq in table[i])
-            {
+            {   Console.ForegroundColor = ConsoleColor.Blue;
                 Console.Write($"P={sq.Perimeter:F2} => {sq}   ||   ");
+                Console.ResetColor();
             }
 
             Console.WriteLine();
         }
 
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine(new string('-', 120));
+        Console.ResetColor();
     }
 }

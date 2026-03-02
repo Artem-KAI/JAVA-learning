@@ -13,12 +13,19 @@ class Square
         Side = Math.Abs(side);
     }
  
-    public double Perimeter => 4 * Side;
+    public double Perimeter()
+    {
+        return 4 * Side;
+    }
+
  
-    public double Area => Side * Side;
+    public double Area()
+    {
+        return Side * Side;
+    }
 
     public override string ToString()
     {
-        return $"Квадрат [X:{X:F1}, Y:{Y:F1}, Side:{Side:F2}, S:{Area:F2}, P:{Perimeter:F2}]";
+        return $"Квадрат [X:{X:F1}, Y:{Y:F1}, Side:{Side:F2}, Area: {Area():F2}, Perimetr: {Perimeter():F2}]";
     }
 }

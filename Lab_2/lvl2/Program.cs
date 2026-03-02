@@ -12,9 +12,17 @@ class Program
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
         Console.Write("Введіть розмір таблиці: ");
-        if (!int.TryParse(Console.ReadLine(), out int size) || size <= 0)
+        string? input = Console.ReadLine();
+        int size;
+
+        if (int.TryParse(input, out size) == false)   
         {
-            Console.WriteLine("Некоректний розмір.");
+            Console.WriteLine("Некоректний розмiр");
+            return;
+        }
+        if (size <= 0)
+        {
+            Console.WriteLine("Некоректний розмiр");
             return;
         }
 
@@ -22,9 +30,20 @@ class Program
         var rand = new Random();
 
         Console.Write("Скільки елементів згенерувати? ");
-        if (!int.TryParse(Console.ReadLine(), out int count) || count < 0)
+
+        string? input1 = Console.ReadLine();
+        int count;                          
+
+        bool isNumber = int.TryParse(input1, out count);
+
+        if (isNumber == false)
         {
-            Console.WriteLine("Некоректна кількість.");
+            Console.WriteLine("Некоректна кількість");
+            return;
+        }
+        if (count < 0)
+        {
+            Console.WriteLine("Некоректна кількість");
             return;
         }
 
@@ -40,7 +59,7 @@ class Program
 
         hashTable.Display();
 
-        Console.WriteLine("\nНатисніть будь-яку клавішу для виходу...");
+        Console.WriteLine("\nНатисніть будь-яку клавішу для виходу ");
         Console.ReadKey();
     }
 }

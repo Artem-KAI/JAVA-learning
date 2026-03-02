@@ -12,10 +12,19 @@ internal class Program
         Console.InputEncoding = System.Text.Encoding.UTF8;
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-        Console.Write("Введiть розмiр хеш-таблицi: ");
-        if (!int.TryParse(Console.ReadLine(), out int size) || size <= 0)
+        Console.Write("Введiть розмiр таблицi: ");
+        string? input = Console.ReadLine();
+        int size;
+
+        if (int.TryParse(input, out size) == false)  // перевіряємо чи введене значення є цілим числом
         {
-            Console.WriteLine("Некоректний розмiр.");
+            Console.WriteLine("Некоректний розмiр");
+            return;
+        }
+
+        if (size <= 0)
+        {
+            Console.WriteLine("Некоректний розмiр");
             return;
         }
 
@@ -23,25 +32,27 @@ internal class Program
         Random random = new Random();
 
         Console.Write("Скiльки елементiв вставити (без колiзiй)? ");
-        int countToInsert = int.Parse(Console.ReadLine());
+        int countToInsert = int.Parse(Console.ReadLine()); 
 
         if (countToInsert > size)
         {
-            Console.WriteLine("Помилка: неможливо вставити елементiв більше, нiж розмiр таблицi.");
+            Console.WriteLine("Помилка: неможливо вставити елементiв більше, нiж розмiр таблицi ");
             return;
         }
 
-        int inserted = 0;
-        int attempts = 0;
-         
+        int inserted = 0;// скільки вставлено елементів
+        int attempts = 0;// скільки було спроб вставити елемент (враховуючи колізії)
+
+        // працює поки не вставлено потібну кількість елементів або не перевищено ліміт спроб
         while (inserted < countToInsert && attempts < 2000)
         {
-            double x = random.NextDouble() * 100;
+            double x = random.NextDouble() * 100; 
             double y = random.NextDouble() * 100;
             double side = 1 + random.NextDouble() * 20;
 
             Square newSquare = new Square(x, y, side);
 
+            // намагаємося вставити квадрат в хеш-таблицю
             if (hashTable.Insert(newSquare))
             {
                 inserted++;
@@ -50,9 +61,9 @@ internal class Program
         }
 
         hashTable.Display();
-        Console.WriteLine($"\nУспiшно вставлено: {inserted} елементiв (спроб: {attempts}).");
+        Console.WriteLine($"\nУспiшно вставлено: {inserted} елементiв (спроб: {attempts}) ");
 
-        Console.WriteLine("\nНатиснiть будь-яку клавiшу для виходу...");
+        Console.WriteLine("\nНатиснiть будь-яку клавiшу для виходу ");
         Console.ReadKey();
     }
 }
