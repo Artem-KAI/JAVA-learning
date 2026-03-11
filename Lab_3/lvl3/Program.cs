@@ -18,7 +18,7 @@ class Program
         tree.PrintStudentInfo();
 
         Console.WriteLine();
-        Console.WriteLine("Видаляємо студентів 2 курсу, які займаються спортом...");
+        Console.WriteLine("Видаляємо студентів 2 курсу, які займаються спортом");
         tree.DeleteStudents();
 
         Console.WriteLine();
