@@ -36,7 +36,8 @@ public class DoublyList
 
     public void removeByIndex(int index) 
     {
-        if (head == null) {
+        if (head == null) 
+        {
             return;
         }
 
@@ -46,15 +47,18 @@ public class DoublyList
             current = current.next;
         }
 
-        if (current == null) { 
+        if (current == null) 
+        { 
             return;  
         }
 
         // обробка лівого вузла 
-        if (current.prev != null) {
+        if (current.prev != null) 
+        {
             current.prev.next = current.next;
         } 
-        else {
+        else 
+        {
             head = current.next; // якщо зліва нікого нема то видаляємо голову 
         }
         // обробка правого вузла 

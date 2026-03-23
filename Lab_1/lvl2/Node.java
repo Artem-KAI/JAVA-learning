@@ -8,7 +8,7 @@ package lvl2;
 // Опис структури даних зі зв’язним способом розміщення
 class Node 
 {
-    String value; // Строковий тип, що представляє число
+    String value; 
     Node next;
     Node prev;
 
