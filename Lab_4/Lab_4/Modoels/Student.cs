@@ -1,10 +1,10 @@
-﻿namespace lvl1.Models
+﻿namespace lvl1.Modoels
 {
     public class Student
     {
         public string LastName { get; set; }
         public string FirstName { get; set; }
-        public string IdCard { get; set; }  
+        public string IdCard { get; set; }
         public string Group { get; set; }
 
         public Student(string lastName, string firstName, string idCard, string group)

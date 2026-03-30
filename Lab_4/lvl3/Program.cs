@@ -21,7 +21,7 @@ namespace lvl3
 
             Console.WriteLine(">>> ПЕРЕД ШВИДКИМ СОРТУВАННЯМ <<<");
             Print(students);
-             
+
             QuickSorter.Sort(students, 0, students.Length - 1);
 
             Console.WriteLine("\n>>> ПІСЛЯ QUICKSORT (МЕДІАНА З ТРЬОХ) <<<");

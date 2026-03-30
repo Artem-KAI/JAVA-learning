@@ -4,7 +4,7 @@
     {
         public string LastName { get; set; }
         public string FirstName { get; set; }
-        public string StudentId { get; set; } 
+        public string StudentId { get; set; }
         public string Group { get; set; }
 
         public Student(string lastName, string firstName, string studentId, string group)

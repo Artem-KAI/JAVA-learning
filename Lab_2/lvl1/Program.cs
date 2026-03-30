@@ -16,7 +16,7 @@ internal class Program
         string? input = Console.ReadLine();
         int size;
 
-        if (int.TryParse(input, out size) == false)  // перевіряємо чи введене значення є цілим числом
+        if (int.TryParse(input, out size) == false)  
         {
             Console.WriteLine("Некоректний розмiр");
             return;
@@ -62,8 +62,6 @@ internal class Program
 
         hashTable.Display();
         Console.WriteLine($"\nУспiшно вставлено: {inserted} елементiв (спроб: {attempts}) ");
-
-        Console.WriteLine("\nНатиснiть будь-яку клавiшу для виходу ");
-        Console.ReadKey();
+ 
     }
 }

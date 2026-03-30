@@ -7,19 +7,19 @@ namespace lvl2.Services
         public static int[] Sort(Student[] students)
         {
             int n = students.Length;
- 
+
             int[] indices = new int[n];
             for (int i = 0; i < n; i++) indices[i] = i;
- 
+
             for (int i = 0; i < n - 1; i++)
             {
                 for (int j = i + 1; j < n; j++)
-                { 
+                {
                     Student s1 = students[indices[i]];
                     Student s2 = students[indices[j]];
 
                     if (ShouldSwap(s1, s2))
-                    { 
+                    {
                         int temp = indices[i];
                         indices[i] = indices[j];
                         indices[j] = temp;

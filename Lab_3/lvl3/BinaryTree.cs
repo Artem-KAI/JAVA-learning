@@ -1,4 +1,9 @@
-﻿public class BinaryTree
+﻿using System;
+
+namespace lvl3;
+
+
+public class BinaryTree
 {
     private TreeNode root;
 
@@ -18,14 +23,15 @@
         {
             node.Left = AddRecursive(node.Left, student);
         }
-        else
+
+        if (string.Compare(student.LastName, node.Data.LastName) > 0)
         {
             node.Right = AddRecursive(node.Right, student);
         }
 
         return node;
     }
-     
+
     public void PrintStudentInfo()
     {
         Console.WriteLine("---------------------------------------------------------------");
@@ -56,15 +62,19 @@
     private TreeNode DeleteRecursive(TreeNode node)
     {
         if (node == null)
+        {
             return null;
+        }
 
         node.Left = DeleteRecursive(node.Left);
         node.Right = DeleteRecursive(node.Right);
          
-        if (node.Data.Course == 2 &&
-            node.Data.Hobby.ToLower().Contains("спорт"))
+        if (node.Data.Course == 2)
         {
-            return RemoveNode(node);
+            if (node.Data.Hobby.ToLower().Contains("спорт"))
+            {
+                return RemoveNode(node);
+            }
         }
 
         return node;
@@ -73,10 +83,13 @@
     private TreeNode RemoveNode(TreeNode node)
     {
         if (node.Left == null)
+        {
             return node.Right;
-
+        }
         if (node.Right == null)
+        {
             return node.Left;
+        }
 
         TreeNode min = FindMin(node.Right);
         node.Data = min.Data;
@@ -85,6 +98,7 @@
         return node;
     }
 
+    // йдемо в праву сторону, а потім в ліву, поки не знайдемо найменший елемент
     private TreeNode FindMin(TreeNode node)
     {
         while (node.Left != null)

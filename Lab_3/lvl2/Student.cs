@@ -1,4 +1,8 @@
-﻿public class Student
+﻿using System;
+
+namespace lvl2;
+
+public class Student
 {
     public string LastName;
     public string FirstName;

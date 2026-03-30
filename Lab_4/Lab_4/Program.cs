@@ -1,15 +1,15 @@
 ﻿using lvl1.Services;
-using lvl1.Models;
 using System.Text;
+using lvl1.Modoels;
 
 namespace lvl1
 {
     class Program
     {
         static void Main()
-        { 
+        {
             Console.OutputEncoding = Encoding.UTF8;
-             
+
             Student[] students = {
                 new Student("Іваненко", "Олег", "KB-001", "IT-21"),
                 new Student("Петренко", "Анна", "KB-005", "AC-11"),
@@ -18,16 +18,18 @@ namespace lvl1
                 new Student("Ткаченко", "Максим", "KB-004", "AC-11")
             };
 
-            Console.WriteLine(">>> МАСИВ ДО СОРТУВАННЯ <<<");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("--->>> Масив до сортування <<<---");
+            Console.ResetColor();
             PrintTable(students);
-             
+
             BubbleSorter.Sort(students);
 
-            Console.WriteLine("\n>>> МАСИВ ПІСЛЯ СОРТУВАННЯ (БУЛЬБАШКА, ЗА ГРУПОЮ) <<<");
-            PrintTable(students);
-
-            Console.WriteLine("\nНатисніть будь-яку клавішу для виходу...");
-            Console.ReadKey();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\n--->>> Масив після сортування (БУЛЬБАШКА, ЗА ГРУПОЮ) <<<---");
+            Console.ResetColor();
+            PrintTable(students); 
+            
         }
 
         static void PrintTable(Student[] students)

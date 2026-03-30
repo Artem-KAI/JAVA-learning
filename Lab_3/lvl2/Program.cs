@@ -1,4 +1,8 @@
 ﻿using System.Text;
+using System;
+
+namespace lvl2;
+
 
 class Program
 {

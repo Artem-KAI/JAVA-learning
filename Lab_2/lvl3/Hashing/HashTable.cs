@@ -31,7 +31,7 @@ class HashTable
     }
 
     // видалити всі квадрати, площа яких менша за задану 
-    public int DeleteByAreaLessThan(double s0)
+    public int DeleteByAreaLessThan(double DeletedArea)
     {
         int removed = 0;
 
@@ -42,7 +42,7 @@ class HashTable
             {
                 var next = node.Next;
 
-                if (node.Value.Area() < s0)
+                if (node.Value.Area() < DeletedArea)
                 {
                     table[i].Remove(node);
                     removed++;
@@ -79,7 +79,7 @@ class HashTable
 
             foreach (var sq in table[i])
             {   Console.ForegroundColor = ConsoleColor.Blue;
-                Console.Write($"P={sq.Perimeter:F2} => {sq}   ||   ");
+                Console.Write($"P={sq.Perimeter():F2} => {sq}   ||   ");
                 Console.ResetColor();
             }
 

@@ -10,18 +10,19 @@ namespace lvl2
         static void Main()
         {
             Console.OutputEncoding = Encoding.UTF8;
-             
+
             Student[] students = {
+                new Student("Чорна", "Маша", "KB-108", "IT-14"),
                 new Student("Білий", "Артем", "KB-105", "IT-21"),
-                new Student("Чорна", "Анна",  "KB-101", "AC-11"),  
-                new Student("Сірий", "Іван",  "KB-102", "AC-11"),  
+                new Student("Чорна", "Анна",  "KB-101", "AC-11"),
+                new Student("Сірий", "Іван",  "KB-102", "AC-11"),
                 new Student("Зелена", "Ольга", "KB-120", "BB-05"),
-                new Student("Руда", "Яна",    "KB-100", "AC-11")  
+                new Student("Руда", "Яна",    "KB-100", "AC-11")
             };
 
             Console.WriteLine(">>> ОРИГІНАЛЬНИЙ МАСИВ (БЕЗ ЗМІН) <<<");
             PrintList(students, null);
-             
+
             int[] sortedIndices = IndexSorter.Sort(students);
 
             Console.WriteLine("\n>>> ВІДСОРТОВАНИЙ ВИГЛЯД (Група -> Квиток) <<<");
@@ -36,11 +37,11 @@ namespace lvl2
             Console.WriteLine($"| {"Група",-7} | {"Квиток",-10} | {"Прізвище та ім'я",-22} |");
             Console.WriteLine(new string('-', 55));
 
-            if (indices == null)  
+            if (indices == null)
             {
                 foreach (var s in students) Console.WriteLine(s);
             }
-            else  
+            else
             {
                 foreach (int i in indices) Console.WriteLine(students[i]);
             }

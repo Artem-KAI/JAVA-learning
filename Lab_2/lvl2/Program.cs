@@ -58,8 +58,6 @@ class Program
         }
 
         hashTable.Display();
-
-        Console.WriteLine("\nНатисніть будь-яку клавішу для виходу ");
-        Console.ReadKey();
+ 
     }
 }

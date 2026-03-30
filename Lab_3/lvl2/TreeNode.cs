@@ -1,4 +1,9 @@
-﻿public class TreeNode
+﻿using System;
+
+namespace lvl2;
+
+
+public class TreeNode
 {
     public Student Data;
     public TreeNode Left;

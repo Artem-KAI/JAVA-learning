@@ -11,9 +11,17 @@ class Program
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
         Console.Write("Введіть розмір хеш-таблиці: ");
-        if (!int.TryParse(Console.ReadLine(), out int size) || size <= 0)
+        string? input = Console.ReadLine();
+        int size;
+
+        if (int.TryParse(input, out size) == false)
         {
-            Console.WriteLine("Некоректний розмір.");
+            Console.WriteLine("Некоректний розмiр");
+            return;
+        }
+        if (size <= 0)
+        {
+            Console.WriteLine("Некоректний розмiр");
             return;
         }
 
@@ -49,8 +57,5 @@ class Program
         Console.WriteLine($"\nВидалено елементів: {removed}");
 
         ht.Display("Вміст хеш-таблиці після видалення");
-
-        Console.WriteLine("\nНатисніть будь-яку клавішу для виходу");
-        Console.ReadKey();
     }
 }

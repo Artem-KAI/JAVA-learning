@@ -38,13 +38,13 @@ class HashTable
     {
         Console.WriteLine("\n    Вміст хеш-таблиці (Роздільне зв’язування)    ");
         Console.WriteLine("{0,-5} | {1}", "Поз", "Ключ(P) -> Елемент");
-        Console.ForegroundColor = ConsoleColor.Red;
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine(new string('-', 110));
         Console.ResetColor();
 
         for (int i = 0; i < size; i++)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("[{0:D3}] | ", i); 
             Console.ResetColor();
 
@@ -58,14 +58,13 @@ class HashTable
 
             foreach (var item in table[i])
             {
-                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.Write($"P={item.GetPerimeter():F2} => {item}  ;  ");
             }
 
             Console.WriteLine();
         }
         
-        Console.ForegroundColor = ConsoleColor.Red;
+        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine(new string('-', 110));
         Console.ResetColor();
     }

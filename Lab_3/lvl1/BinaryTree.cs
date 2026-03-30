@@ -1,11 +1,10 @@
-﻿public class BinaryTree
+﻿using System;
+
+namespace lvl1;
+
+public class BinaryTree
 {
     private TreeNode root;
-
-    public void AddStudent(Student student)
-    {
-        root = AddRecursive(root, student);
-    }
 
     private TreeNode AddRecursive(TreeNode node, Student student)
     {
@@ -13,16 +12,35 @@
         {
             return new TreeNode(student);
         }
-         
-        if (string.Compare(student.LastName, node.Data.LastName) < 0)
+
+        if (string.Compare(student.LastName, node.Data.LastName) < 0)// Авраменко < Іваненка = true
         {
             node.Left = AddRecursive(node.Left, student);
-        }else
+        }
+
+        if (string.Compare(student.LastName, node.Data.LastName) > 0)// Авраменко > Іваненка = false
         {
             node.Right = AddRecursive(node.Right, student);
         }
 
         return node;
+    }
+
+    public void AddStudent(Student student)
+    {
+        root = AddRecursive(root, student);
+    }
+ 
+    private void DFSmethod(TreeNode node)
+    {
+        if (node == null)// якщо гілка порожня, то повертаємося назад
+            return;
+
+        Console.WriteLine(node.Data);// друкуємо інформацію про студента, який знаходиться в поточному вузлі
+
+        // рекурсивно викликаємо метод для лівої та правої гілки
+        DFSmethod(node.Left);
+        DFSmethod(node.Right);
     }
 
     public void PrintStudentInfo()
@@ -34,16 +52,5 @@
         DFSmethod(root);
 
         Console.WriteLine("-------------------------------------------------------------");
-    }
- 
-    private void DFSmethod(TreeNode node)
-    {
-        if (node == null)
-            return;
-
-        Console.WriteLine(node.Data);
-
-        DFSmethod(node.Left);
-        DFSmethod(node.Right);
     }
 }

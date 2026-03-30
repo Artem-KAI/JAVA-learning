@@ -8,17 +8,17 @@ namespace lvl3.Services
         public static void Sort(Student[] array, int left, int right)
         {
             if (left >= right) return;
-             
+
             int mid = left + (right - left) / 2;
-             
+
             if (string.Compare(array[left].Group, array[mid].Group) > 0) Swap(array, left, mid);
             if (string.Compare(array[left].Group, array[right].Group) > 0) Swap(array, left, right);
             if (string.Compare(array[mid].Group, array[right].Group) > 0) Swap(array, mid, right);
-             
+
             string pivot = array[mid].Group;
             int i = left;
             int j = right;
-             
+
             while (i <= j)
             {
                 while (string.Compare(array[i].Group, pivot) < 0) i++;
@@ -31,7 +31,7 @@ namespace lvl3.Services
                     j--;
                 }
             }
-             
+
             if (left < j) Sort(array, left, j);
             if (i < right) Sort(array, i, right);
         }

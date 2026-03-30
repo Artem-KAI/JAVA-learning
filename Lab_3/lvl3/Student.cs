@@ -1,4 +1,10 @@
-﻿public class Student
+﻿using System.Text;
+using System;
+
+namespace lvl3;
+
+
+public class Student
 {
     public string LastName;
     public string FirstName;
