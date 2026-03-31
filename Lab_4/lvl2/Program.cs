@@ -20,12 +20,16 @@ namespace lvl2
                 new Student("Руда", "Яна",    "KB-100", "AC-11")
             };
 
-            Console.WriteLine(">>> ОРИГІНАЛЬНИЙ МАСИВ (БЕЗ ЗМІН) <<<");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("--->>> Оригінальний масив (БЕЗ ЗМІН) <<<---");
+            Console.ResetColor();
             PrintList(students, null);
 
             int[] sortedIndices = IndexSorter.Sort(students);
 
-            Console.WriteLine("\n>>> ВІДСОРТОВАНИЙ ВИГЛЯД (Група -> Квиток) <<<");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\n--->>> Відсортований масив (Група -> Квиток) <<<---");
+            Console.ResetColor();
             PrintList(students, sortedIndices);
 
             Console.ReadKey();
