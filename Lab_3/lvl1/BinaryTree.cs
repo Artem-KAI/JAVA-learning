@@ -13,12 +13,12 @@ public class BinaryTree
             return new TreeNode(student);
         }
 
-        if (string.Compare(student.LastName, node.Data.LastName) < 0)// Авраменко < Іваненка = true
+        if (string.Compare(student.LastName, node.Data.LastName) < 0) // Авраменко < Іваненка = true
         {
             node.Left = AddRecursive(node.Left, student);
         }
 
-        if (string.Compare(student.LastName, node.Data.LastName) > 0)// Авраменко > Іваненка = false
+        if (string.Compare(student.LastName, node.Data.LastName) > 0) // Авраменко > Іваненка = false
         {
             node.Right = AddRecursive(node.Right, student);
         }

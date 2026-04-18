@@ -40,8 +40,8 @@ internal class Program
             return;
         }
 
-        int inserted = 0;// скільки вставлено елементів
-        int attempts = 0;// скільки було спроб вставити елемент (враховуючи колізії)
+        int inserted = 0;
+        int attempts = 0;
 
         // працює поки не вставлено потібну кількість елементів або не перевищено ліміт спроб
         while (inserted < countToInsert && attempts < 2000)

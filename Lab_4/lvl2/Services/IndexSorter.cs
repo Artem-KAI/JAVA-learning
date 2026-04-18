@@ -31,12 +31,11 @@ namespace lvl2.Services
 
         private static bool ShouldSwap(Student s1, Student s2)
         {
-            // Порівнюємо групи 
             int groupComparison = string.Compare(s1.Group, s2.Group);
 
             if (groupComparison > 0)
             {
-                return true; // AC-11 > KB-11, далі не йдемо
+                return true; 
             }
 
             // Якщо групи однакові, порівнюємо номери квитків

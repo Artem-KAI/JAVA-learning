@@ -5,10 +5,6 @@ using System;
 
 internal class HashTable
 {
-    // описати хеш-таблицю з відкритою адресацією 
-    // Чому це відкрита адресація:
-    // використовується масив
-    // всі елементи зберігаються прямо в масиві
     private Square[] table;
     private int size;
 
@@ -18,16 +14,13 @@ internal class HashTable
         this.table = new Square[size];
     }
 
-    // використовує метод хешування - ділення k % size
-    // key - периметр квадрата
     private int HashFunction(double key)
     {
-        int k = (int)Math.Floor(key); // Math.Floor округлює число вниз, відкидає дробову частину     
-        k = Math.Abs(k);// Abs бере модуль числа 
-        return k % size;// Оператор % повертає остачу від ділення.
+        int k = (int)Math.Floor(key);  
+        k = Math.Abs(k);
+        return k % size;
     }
 
-    // вставити елементи так, щоб не було колізій
     public bool Insert(Square square)
     {
         int index = HashFunction(square.GetPerimeter());

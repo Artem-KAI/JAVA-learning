@@ -30,7 +30,7 @@ class HashTable
     public bool Insert(Square square)
     {
         int index = HashFunction(square.GetPerimeter());
-        table[index].AddLast(square);// якщо комірка вже зайнята, то новий елемент додається в кінець списку 
+        table[index].AddLast(square);
         return true;
     } 
 

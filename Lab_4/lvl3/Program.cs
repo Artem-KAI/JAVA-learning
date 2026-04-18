@@ -19,12 +19,16 @@ namespace lvl3
                 new Student("Лис", "Яна", "АП-12")
             };
 
-            Console.WriteLine(">>> ПЕРЕД ШВИДКИМ СОРТУВАННЯМ <<<");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("--->>> Перед швидким сортуванням <<<---");
+            Console.ResetColor();
             Print(students);
 
             QuickSorter.Sort(students, 0, students.Length - 1);
 
-            Console.WriteLine("\n>>> ПІСЛЯ QUICKSORT (МЕДІАНА З ТРЬОХ) <<<");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\n--->>> Після QUICKSORT (МЕДІАНА З ТРЬОХ) <<<---");
+            Console.ResetColor();   
             Print(students);
 
             Console.ReadKey();

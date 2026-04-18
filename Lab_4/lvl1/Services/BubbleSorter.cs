@@ -12,7 +12,7 @@ namespace lvl1.Services
             {
                 for (int j = 0; j < n - i - 1; j++)
                 {
-                    if (string.Compare(array[j].Group, array[j + 1].Group) > 0)// IT-21 > AC-11  true (> 0)...
+                    if (string.Compare(array[j].Group, array[j + 1].Group) > 0)// IT-21 > AC-11  true (> 0)  
                     {
                         (array[j], array[j + 1]) = (array[j + 1], array[j]);
                     }
